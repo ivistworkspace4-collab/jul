@@ -622,30 +622,27 @@ setInterval(updateTimeOptions, 60000);
 
 
 
-<script>
-document.getElementById('wf-form-shopify-main').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz5ewRLBLwBbkKRUTslvVH-MkTCHMnaWzGLh3NOTA6niYyKyFbVxT3jcKM2-nWV3la7/exec';
-    
-    // Собираем данные
-    const formDataRaw = new FormData(this);
-    const data = {};
-    formDataRaw.forEach((value, key) => {
-        data[key.toLowerCase()] = value;
-    });
 
-    // Отправляем
-    fetch(WEB_APP_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
+
+
+<script>
+  document.getElementById('wf-form-shopify-main').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = new FormData(form);
+  const params = new URLSearchParams(data).toString();
+  const url = 'https://script.google.com/macros/s/AKfycbxrAmaoLM_IDqsUlpBcY9XDSSac36YZX0Xxi0bXQpK5zknVhxY9SAStycMEf4HCdhKD/exec?' + params;
+
+  fetch(url)
+    .then(res => res.json())
     .then(() => {
-        alert('Заявка отправлена!');
-        this.reset();
+      form.style.display = 'none';
+      document.querySelector('.success-message-2').style.display = 'block';
     })
-    .catch(err => console.error(err));
+    .catch(() => {
+      document.querySelector('.error').style.display = 'block';
+    });
 });
 </script>
 
