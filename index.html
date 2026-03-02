@@ -618,6 +618,69 @@ if (document.readyState === 'loading') {
 setInterval(updateTimeOptions, 60000);
 </script>
 
+<script>
+(function(){
+  // Вставьте сюда URL Web App (Apps Script) после деплоя
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzmWR1_4vOrHphY2q-p6SNMCB4ZXi0TDIX4hobTZD0hBZH0igbVB3wpJOfJD2LbP7FD/exec';
+  // По желанию установите секрет (пустая строка = без секрета)
+  const SECRET = 'YOUR_SECRET';
+
+  function showResult(form, ok) {
+    const block = form.closest('.form-block') || form.parentElement;
+    const done = block.querySelector('.w-form-done') || block.querySelector('.success-message-2');
+    const fail = block.querySelector('.w-form-fail') || block.querySelector('.error');
+    if (ok) {
+      if (done) done.style.display = 'block';
+      if (fail) fail.style.display = 'none';
+      try { form.reset(); } catch(e) {}
+    } else {
+      if (fail) fail.style.display = 'block';
+    }
+  }
+
+  async function submitHandler(e) {
+    e.preventDefault();
+    const form = e.target;
+    const submitBtn = form.querySelector('[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    // Добавляем timestamp и, при необходимости, секрет
+    data.submitted_at = new Date().toISOString();
+    if (SECRET) data.secret = SECRET;
+
+    try {
+      const res = await fetch(WEB_APP_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json().catch(() => null);
+      if (json && json.result === 'ok') {
+        showResult(form, true);
+      } else {
+        showResult(form, false);
+      }
+    } catch (err) {
+      console.error('Form send error:', err);
+      showResult(form, false);
+    } finally {
+      if (submitBtn) {
+        setTimeout(() => { submitBtn.disabled = false; }, 500);
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Селектор форм: data-name="smartsender" — поменяйте при необходимости
+    document.querySelectorAll('form[data-name="smartsender"]').forEach(function(form) {
+      form.addEventListener('submit', submitHandler);
+    });
+  });
+})();
+</script>
+
+
 <!-- ilfConfig + sf.js -->
 <script>
   window.ilfConfig = {
