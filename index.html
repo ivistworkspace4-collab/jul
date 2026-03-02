@@ -790,6 +790,20 @@ setInterval(updateTimeOptions, 60000);
   };
   console.log('ilfConfig инициализирован:', window.ilfConfig);
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('form[data-il-init]').forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // останавливаем стандартную отправку/перезагрузку
+
+      // sf.js сам возьмёт данные формы и отправит через ilfConfig
+      // нам нужно только не дать странице перезагрузиться
+    });
+  });
+});
+</script>
+
 <script src="https://client.integraleap.com/js/sf.js"></script>
 
 
