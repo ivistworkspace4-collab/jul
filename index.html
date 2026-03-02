@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="style.css" media="all">
   <link id="ilFormsLoaderCSS" rel="stylesheet" href="./v10-us_files/loader.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/css/intlTelInput.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <style>
     .iti {
@@ -110,7 +111,7 @@
           <p class="p-18 min">Подборка товаров,<span class="is-wht"> которые принесут $60.000+</span> за 1ый квартал</p>
         </div>
         <img loading="lazy" src="images/arrow-ico.png" alt="" class="hero_secret-arrow">
-        <div class="form-block">
+        <div class="form-block w-form">
   <form id="wf-form-shopify-main" data-name="smartsender" method="post" class="form-5" data-il-init="1" aria-label="smartsender">
     <input class="text-field-5 w-input" maxlength="256" name="email" placeholder="email" type="email" id="email-2" required="">
     <input class="text-field-5 w-input" maxlength="256" name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
@@ -132,9 +133,16 @@
         </select>
       </div>
     </div>
-    <input type="submit" class="submit-button-5 w-button" value="Бесплатная регистрация">
+    <input type="submit" data-wait="Пожалуйста, подождите..." class="submit-button-5 w-button" value="Бесплатная регистрация">
     <input type="hidden" name="time" value="7PM - Сегодня">
   </form>
+  <div class="success-message-2 w-form-done" style="display:none" tabindex="-1" role="region" aria-label="smartsender success">
+    <div>Спасибо! Ваша заявка получена!</div>
+  </div>
+  <div class="error w-form-fail" style="display:none" tabindex="-1" role="region" aria-label="smartsender failure">
+    <div>Упс! Что-то пошло не так при отправке формы.</div>
+  </div>
+</div>
   <div class="success-message-2" style="display:none"><div>Спасибо! Ваша заявка получена!</div></div>
   <div class="error" style="display:none"><div>Упс! Что-то пошло не так при отправке формы.</div></div>
 </div>
