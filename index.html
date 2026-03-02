@@ -623,28 +623,41 @@ setInterval(updateTimeOptions, 60000);
 
 
 
-
-
 <script>
-  document.getElementById('wf-form-shopify-main').addEventListener('submit', function(e) {
-  e.preventDefault();
 
-  const form = e.target;
-  const data = new FormData(form);
+document.getElementById('wf-form-shopify-main').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Берём полный номер из intlTelInput и вручную кладём в скрытое поле
+  const fullPhone = document.getElementById('phone-3').value;
+  
+  // Найдём скрытое поле phone и заполним его
+  let hiddenPhone = e.target.querySelector('input[name="phone"][type="hidden"]');
+  if (!hiddenPhone) {
+    hiddenPhone = document.createElement('input');
+    hiddenPhone.type = 'hidden';
+    hiddenPhone.name = 'phone';
+    e.target.appendChild(hiddenPhone);
+  }
+  hiddenPhone.value = fullPhone;
+
+  const data = new FormData(e.target);
   const params = new URLSearchParams(data).toString();
   const url = 'https://script.google.com/macros/s/AKfycbwNjlHAkeZZYRR99MSOFrdHZS5G-OxtdsHIluTqRTCpbexg6Wva-V0owT8bQ3R6S1tg/exec?' + params;
 
   fetch(url)
     .then(res => res.json())
     .then(() => {
-      form.style.display = 'none';
+      e.target.style.display = 'none';
       document.querySelector('.success-message-2').style.display = 'block';
     })
     .catch(() => {
       document.querySelector('.error').style.display = 'block';
     });
 });
+
 </script>
+
 
 
 <!-- ilfConfig + sf.js -->
