@@ -636,6 +636,13 @@ setInterval(updateTimeOptions, 60000);
     }
   };
 </script>
+
+<script>
+window.onerror = function(msg, src, line, col, err) {
+  console.error('GLOBAL ERROR:', msg, 'line:', line, err);
+  return true;
+};
+</script>
 <script src="https://client.integraleap.com/js/sf.js"></script>
 
 </body>
