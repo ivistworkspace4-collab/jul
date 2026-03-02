@@ -9,15 +9,13 @@
   <style>.wf-force-outline-none[tabindex="-1"]:focus { outline: none; }</style>
   <title>v10-us</title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
-
-  <!-- integrity убран чтобы не блокировать style.css -->
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css" integrity="sha384-sh8bPDhHS1oXEetBKvNFaSTWgHu+14H1mHNhsBC4Je4i+ZkzEwbmu5C/1ATjSdc4" crossorigin="anonymous">
   <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin="anonymous">
   <link href="https://cdn.prod.website-files.com/661124807836f79815e2217a/661573fd66ae1e5d1b3bfc32_image%2034.png" rel="shortcut icon" type="image/x-icon">
   <link href="./v10-us_files/6615740e1cf60e93ab1a4654_22.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="style.css" media="all">
+  <link id="ilFormsLoaderCSS" rel="stylesheet" href="./v10-us_files/loader.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/css/intlTelInput.min.css">
-
-  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <style>
@@ -28,6 +26,10 @@
     }
     .iti__selected-flag {
       color: black;
+    }
+    .imageye-selected {
+      outline: 2px solid black !important;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
     }
     .select {
       appearance: none;
@@ -41,6 +43,7 @@
     }
   </style>
 
+  
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -60,7 +63,7 @@
 
 <div class="background">
   <img src="./images/bg-hero.png" loading="lazy" alt="" class="image-2">
-</div>
+  </div>
 
 <div class="hero">
   <div data-w-id="69442a8f-b700-2611-e36a-ad38ac240c26" style="opacity:1;transform:translate3d(0px,0px,0px) scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg,0deg);transform-style:preserve-3d;" class="hero_header-2">
@@ -109,33 +112,40 @@
         </div>
         <img loading="lazy" src="images/arrow-ico.png" alt="" class="hero_secret-arrow">
         <div class="form-block w-form">
-          <form id="wf-form-shopify-main" data-name="smartsender" method="post" class="form-5" data-il-init="1" aria-label="smartsender">
-            <input class="text-field-5 w-input" maxlength="256" name="email" placeholder="email" type="email" id="email-2" required="">
-            <input class="text-field-5 w-input" maxlength="256" name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
-            <div class="gap-12">
-              <div class="wrp-label">
-                <div class="p-16">Мессенджер</div>
-                <div class="wrp-form-ch"></div>
-                <select id="Messenger" name="Messenger" required="" class="text-field-5 select">
-                  <option value="Telegram">Telegram</option>
-                  <option value="WhatsApp">WhatsApp</option>
-                </select>
-              </div>
-              <div class="wrp-label">
-                <div class="p-16">На какое время?</div>
-                <div class="wrp-form-ch"></div>
-                <select id="timeField" name="field" required="" class="text-field-5 select">
-                  <option value="7PM">7PM (Сегодня)</option>
-                  <option value="1PM">1PM (Сегодня)</option>
-                </select>
-              </div>
-            </div>
-            <input type="submit" data-wait="Пожалуйста, подождите..." class="submit-button-5 w-button" value="Бесплатная регистрация">
-            <input type="hidden" name="time" value="7PM - Сегодня">
-          </form>
-          <div class="success-message-2 w-form-done" style="display:none" tabindex="-1" role="region" aria-label="smartsender success"><div>Спасибо! Ваша заявка получена!</div></div>
-          <div class="error w-form-fail" style="display:none" tabindex="-1" role="region" aria-label="smartsender failure"><div>Упс! Что-то пошло не так при отправке формы.</div></div>
-        </div>
+  <form id="wf-form-shopify-main" data-name="smartsender" method="post" class="form-5" data-il-init="1" aria-label="smartsender">
+    <input class="text-field-5 w-input" maxlength="256" name="email" placeholder="email" type="email" id="email-2" required="">
+    <input class="text-field-5 w-input" maxlength="256" name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
+    <div class="gap-12">
+      <div class="wrp-label">
+        <div class="p-16">Мессенджер</div>
+        <div class="wrp-form-ch"></div>
+        <select id="Messenger" name="Messenger" required="" class="text-field-5 select">
+          <option value="Telegram">Telegram</option>
+          <option value="WhatsApp">WhatsApp</option>
+        </select>
+      </div>
+      <div class="wrp-label">
+        <div class="p-16">На какое время?</div>
+        <div class="wrp-form-ch"></div>
+        <select id="timeField" name="field" required="" class="text-field-5 select">
+          <option value="7PM">7PM (Сегодня)</option>
+          <option value="1PM">1PM (Сегодня)</option>
+        </select>
+      </div>
+    </div>
+    <input type="submit" data-wait="Пожалуйста, подождите..." class="submit-button-5 w-button" value="Бесплатная регистрация">
+    <input type="hidden" name="time" value="7PM - Сегодня">
+  </form>
+  <div class="success-message-2 w-form-done" style="display:none" tabindex="-1" role="region" aria-label="smartsender success">
+    <div>Спасибо! Ваша заявка получена!</div>
+  </div>
+  <div class="error w-form-fail" style="display:none" tabindex="-1" role="region" aria-label="smartsender failure">
+    <div>Упс! Что-то пошло не так при отправке формы.</div>
+  </div>
+</div>
+  <div class="success-message-2" style="display:none"><div>Спасибо! Ваша заявка получена!</div></div>
+  <div class="error" style="display:none"><div>Упс! Что-то пошло не так при отправке формы.</div></div>
+</div>
       </div>
     </div>
   </div>
@@ -145,7 +155,7 @@
   <h1 class="h-42">ПрограмMа МАСТЕР-КЛАССА</h1>
   <div class="hour_content">
     <div class="hour_element">
-      <p data-w-id="87266476-3119-386c-843a-e5043acce238" class="p-30 bold red">БЛОК 1. <br><strong>Продажи на ETSY с помощью нейросетей в начале года</strong></p>
+      <p data-w-id="87266476-3119-386c-843a-e5043acce238"  class="p-30 bold red">БЛОК 1. <br><strong>Продажи на ETSY с помощью нейросетей в начале года</strong></p>
       <p class="p-25 black-center">Как запустить бизнес на Etsy всего за месяц с помощью <strong>искусственного интеллекта</strong></p>
       <p class="p-25 black-center">Почему <strong>начало года — идеальное время</strong> для старта на Etsy</p>
       <p class="p-25 black-center">Как <strong>делать фотосессии</strong> товара с помощью искусственного интеллекта</p>
@@ -160,7 +170,7 @@
     </div>
   </div>
   <img class="business_lines-img pc" src="./images/lines.png">
-</div>
+  </div>
 
 <div class="masterclass">
   <h1 class="h-42">ТАКЖЕ, НА МАСТЕР-КЛАССЕ<br><span class="light-green_span">ВЫ ПОЛУЧИТЕ З&nbsp;БОНУСА:</span></h1>
@@ -182,7 +192,7 @@
         <div class="text-block-3">Шпаргалка по искусственному интеллекту.&nbsp;Все мои ТОП наработки в одном PDF <br><br></div>
       </div>
     </div>
-    <a href="#form2" class="masterclass_btn w-button">ЗАБРАТЬ БОНУСы</a>
+    <a href="https://www.juliagrosuschool.us/v10-us#form2" data-w-id="8f723779-6b1b-cc23-ed6e-0bd5289ba404" class="masterclass_btn w-button" style="transform:translate3d(0px,0px,0px) scale3d(0.955714,0.955714,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg,0deg);transform-style:preserve-3d;will-change:transform;">ЗАБРАТЬ БОНУСы</a>
   </div>
 </div>
 
@@ -203,7 +213,7 @@
         </span>
       </p>
     </div>
-    <img src="./images/stats.jpeg" alt="Graph" loading="lazy" class="organic_img" style="width: 100%; max-width: 500px;">
+<img src="./images/stats.jpeg" alt="Graph" loading="lazy" class="organic_img" style="width: 100%; max-width: 500px;">
   </div>
   <div class="organic_bot-text">
     <img loading="lazy" src="./images/etsy-logo-e.png" alt="" class="organic_shopify-photos">
@@ -236,14 +246,13 @@
       <p class="p-18 min">Подборка товаров,<span class="is-wht"> которые принесут $60.000+</span> за 1ый квартал</p>
     </div>
     <div class="form-block w-form">
-      <form id="wf-form-shopify-main-2" data-name="smartsender" method="post" class="form-5" data-il-init="1" aria-label="smartsender">
-        <input class="text-field-5 w-input" maxlength="256" name="email" placeholder="email" type="email" id="email-3" required="">
-        <input class="text-field-5 w-input" maxlength="256" name="phone" type="tel" id="phone-4" required="" autocomplete="off" placeholder="50 123 4567">
-        <div class="gap-12">
+      <form id="wf-form-shopify-main" name="wf-form-shopify-main" data-name="smartsender" method="get" class="form-5" data-wf-page-id="681cd073e10f5fc7e7e7e821" data-wf-element-id="ccfdfec9-9f98-96db-9f58-1d4f69bf12c9" data-il-init="1" aria-label="smartsender">
+        <input class="text-field-5 w-input" maxlength="256" name="email" data-name="email" placeholder="email" type="email" id="email-2" required="">
+        <input class="text-field-5 w-input" maxlength="256" name="phone" data-name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567"><div class="gap-12">
           <div class="wrp-label">
             <div class="p-16">Мессенджер</div>
             <div class="wrp-form-ch"></div>
-            <select id="Messenger" name="Messenger" required="" class="text-field-5 select">
+            <select id="Messenger" name="Messenger" data-name="Messenger" required="" class="text-field-5 select w-select">
               <option value="Telegram">Telegram</option>
               <option value="WhatsApp">WhatsApp</option>
             </select>
@@ -251,17 +260,17 @@
           <div class="wrp-label">
             <div class="p-16">На какое время?</div>
             <div class="wrp-form-ch"></div>
-            <select id="timeField" name="field" required="" class="text-field-5 select">
+            <select id="timeField" name="field" data-name="Field" required="" class="text-field-5 select w-select">
               <option value="7PM">7PM (Сегодня)</option>
               <option value="1PM">1PM (Сегодня)</option>
             </select>
           </div>
         </div>
-        <input type="submit" data-wait="Пожалуйста, подождите..." class="submit-button-5 w-button" value="Бесплатная регистрация">
+        <input type="submit" data-wait="Пожалуйста, подождите..." class="submit-button-5 w-button" value="Бесплатная регистрация" style="transform:translate3d(0px,0px,0px) scale3d(0.955714,0.955714,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg,0deg);transform-style:preserve-3d;will-change:transform;">
         <input type="hidden" name="time" value="7PM - Сегодня">
       </form>
-      <div class="success-message-2 w-form-done" style="display:none" tabindex="-1" role="region" aria-label="smartsender success"><div>Спасибо! Ваша заявка получена!</div></div>
-      <div class="error w-form-fail" style="display:none" tabindex="-1" role="region" aria-label="smartsender failure"><div>Упс! Что-то пошло не так при отправке формы.</div></div>
+      <div class="success-message-2 w-form-done" tabindex="-1" role="region" aria-label="smartsender success"><div>Спасибо! Ваша заявка получена!</div></div>
+      <div class="error w-form-fail" tabindex="-1" role="region" aria-label="smartsender failure"><div>Упс! Что-то пошло не так при отправке формы.</div></div>
     </div>
   </div>
 </div>
@@ -291,14 +300,14 @@
       <div id="js-timer-days" class="clock-number-3 light-green_span">0</div>
       <div class="clock-label-2 norm">дней</div>
     </div>
-    <div class="dots">:</div>
+    <div id="js-timer-days" class="dots">:</div>
     <div class="countdown-item">
-      <div id="js-timer-hours" class="clock-number-3 light-green_span">0</div>
+      <div id="js-timer-hours" class="clock-number-3 light-green_span">15</div>
       <div class="clock-label-2 norm">часов</div>
     </div>
-    <div class="dots">:</div>
+    <div id="js-timer-days" class="dots">:</div>
     <div class="countdown-item">
-      <div id="js-timer-minutes" class="clock-number-3 light-green_span">0</div>
+      <div id="js-timer-minutes" class="clock-number-3 light-green_span">21</div>
       <div class="clock-label-2 norm">минут</div>
     </div>
   </div>
@@ -336,14 +345,14 @@
     </div>
     <img loading="lazy" src="./v10-us_files/66dab70e4b5f810f8f2cda18_arrow.png" alt="" class="hero_secret-arrow">
     <div class="form-block w-form">
-      <form id="wf-form-shopify-main-3" data-name="smartsender" method="post" class="form-5" data-il-init="1" aria-label="smartsender">
-        <input class="text-field-5 w-input" maxlength="256" name="email" placeholder="email" type="email" id="email-4" required="">
-        <input class="text-field-5 w-input" maxlength="256" name="phone" type="tel" id="phone-5" required="" autocomplete="off" placeholder="50 123 4567">
+      <form id="wf-form-shopify-main" name="wf-form-shopify-main" data-name="smartsender" method="get" class="form-5" data-wf-page-id="681cd073e10f5fc7e7e7e821" data-wf-element-id="ec58f6ba-f2d9-d998-1cfe-91fa9e8b23da" data-il-init="1" aria-label="smartsender">
+        <input class="text-field-5 w-input" maxlength="256" name="email" data-name="email" placeholder="email" type="email" id="email-2" required="">
+        <input class="text-field-5 w-input" maxlength="256" name="phone" data-name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
         <div class="gap-12">
           <div class="wrp-label">
             <div class="p-16">Мессенджер</div>
             <div class="wrp-form-ch"></div>
-            <select id="Messenger" name="Messenger" required="" class="text-field-5 select">
+            <select id="Messenger" name="Messenger" data-name="Messenger" required="" class="text-field-5 select w-select">
               <option value="Telegram">Telegram</option>
               <option value="WhatsApp">WhatsApp</option>
             </select>
@@ -351,17 +360,17 @@
           <div class="wrp-label">
             <div class="p-16">На какое время?</div>
             <div class="wrp-form-ch"></div>
-            <select id="timeField" name="field" required="" class="text-field-5 select">
+            <select id="timeField" name="field" data-name="Field" required="" class="text-field-5 select w-select">
               <option value="7PM">7PM (Сегодня)</option>
               <option value="1PM">1PM (Сегодня)</option>
             </select>
           </div>
         </div>
-        <input type="submit" data-wait="Пожалуйста, подождите..." class="submit-button-5 w-button" value="Бесплатная регистрация">
+        <input type="submit" data-wait="Пожалуйста, подождите..." class="submit-button-5 w-button" value="Бесплатная регистрация" style="transform:translate3d(0px,0px,0px) scale3d(0.955714,0.955714,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg,0deg);transform-style:preserve-3d;will-change:transform;">
         <input type="hidden" name="time" value="7PM - Сегодня">
       </form>
-      <div class="success-message-2 w-form-done" style="display:none" tabindex="-1" role="region" aria-label="smartsender success"><div>Спасибо! Ваша заявка получена!</div></div>
-      <div class="error w-form-fail" style="display:none" tabindex="-1" role="region" aria-label="smartsender failure"><div>Упс! Что-то пошло не так при отправке формы.</div></div>
+      <div class="success-message-2 w-form-done" tabindex="-1" role="region" aria-label="smartsender success"><div>Спасибо! Ваша заявка получена!</div></div>
+      <div class="error w-form-fail" tabindex="-1" role="region" aria-label="smartsender failure"><div>Упс! Что-то пошло не так при отправке формы.</div></div>
     </div>
   </div>
 </div>
@@ -370,16 +379,16 @@
   <div class="linefooter desktop">
     <img src="./v10-us_files/66126f3fab50e91689d13667_footer line.png" loading="lazy" alt="" class="image-20">
   </div>
-  <div class="w-layout-layout footergrid wf-layout-layout">
+  <div id="w-node-_04326cb7-1d8a-ff1c-004f-fc527414c7e5-e7e7e821" class="w-layout-layout footergrid wf-layout-layout">
     <div class="w-layout-cell links">
       <a href="https://www.juliagrosuschool.us/policy" target="_blank" class="link">политика конфиденциальности</a>
       <a href="https://www.juliagrosuschool.us/terms" target="_blank" class="link _2">Оферта</a>
     </div>
-    <div class="w-layout-cell links">
+    <div id="w-node-_04326cb7-1d8a-ff1c-004f-fc527414c7ec-e7e7e821" class="w-layout-cell links">
       <a href="https://www.juliagrosuschool.us/terms#return" class="link">Условия оказания услуг</a>
       <a href="https://www.juliagrosuschool.us/terms#services" class="link _2">Условия возврата</a>
     </div>
-    <div class="w-layout-cell contact">
+    <div id="w-node-_04326cb7-1d8a-ff1c-004f-fc527414c7f1-e7e7e821" class="w-layout-cell contact">
       <a href="mailto:etsy.ourschool@gmail.com" class="footer-link w-inline-block">
         <div class="pioint footer"><div class="circle"><img src="./images/mail.svg" loading="lazy" alt="" class="point-image"></div><img src="./v10-us_files/66126f3fab50e91689d13666_point.svg" loading="lazy" alt="" class="gradient-dot footer"></div>
         <div class="link _3">etsy.ourschool@gmail.com</div>
@@ -390,9 +399,9 @@
       </a>
     </div>
   </div>
-  <div class="w-layout-layout quick-stack-9 wf-layout-layout">
+  <div id="w-node-_04326cb7-1d8a-ff1c-004f-fc527414c800-e7e7e821" class="w-layout-layout quick-stack-9 wf-layout-layout">
     <div class="w-layout-cell copyright"><p class="paragraph-2">Copyright &copy; 2026 Юлия Гросу</p></div>
-    <div class="w-layout-cell peyphoto"></div>
+    <div id="w-node-_04326cb7-1d8a-ff1c-004f-fc527414c804-e7e7e821" class="w-layout-cell peyphoto"></div>
     <div class="w-layout-cell"></div>
   </div>
 </section>
@@ -400,10 +409,11 @@
 <div class="form-n-loader hidden"><div></div></div>
 
 <!-- ============================================================
-     SCRIPTS
+     SCRIPTS — все JS в конце страницы
      ============================================================ -->
 
-<!-- Meta Pixel #2 -->
+
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -419,79 +429,102 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=831474609025247&ev=PageView&noscript=1"
 /></noscript>
-
-<!-- fbq Lead на кнопки -->
+<!-- End Meta Pixel Code -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.submit-button-5').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      fbq('track', 'Lead');
-    });
-  });
+document.querySelector('.but').addEventListener('click', function() {
+  fbq('track', 'Lead');
 });
 </script>
 
-<!-- Таймер -->
 <script>
-window.addEventListener('DOMContentLoaded', function() {
-  const now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
-  const nyTime = new Date(now);
-  let deadline;
+document.querySelector('.but2').addEventListener('click', function() {
+  fbq('track', 'Lead');
+});
+</script>
 
-  function setNewDeadline() {
-    if (nyTime.getHours() < 19) {
-      deadline = new Date(nyTime.getFullYear(), nyTime.getMonth(), nyTime.getDate(), 19, 0, 0);
-    } else {
-      const tomorrow = new Date(nyTime);
-      tomorrow.setDate(nyTime.getDate() + 1);
-      deadline = new Date(tomorrow.getFullYear(), tomorrow.getMonth(), tomorrow.getDate(), 19, 0, 0);
-    }
-  }
+<script>
+document.querySelector('.but3').addEventListener('click', function() {
+  fbq('track', 'Lead');
+});
+</script>
 
-  setNewDeadline();
 
-  function addLeadingZero(number) {
-    return number < 10 ? '0' + number : number;
-  }
 
-  const updateTimer = () => {
+
+
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {
+    // Получаем текущее время по Нью-Йорку
     const now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
     const nyTime = new Date(now);
-    const distance = deadline - nyTime;
 
-    if (distance <= 0) {
-      clearInterval(timerInterval);
-      document.querySelector('#js-timer-days').innerText = '0';
-      document.querySelector('#js-timer-hours').innerText = '0';
-      document.querySelector('#js-timer-minutes').innerText = '0';
-      return;
+    let deadline;
+
+    function setNewDeadline() {
+        if (nyTime.getHours() < 19) {
+            deadline = new Date(nyTime.getFullYear(), nyTime.getMonth(), nyTime.getDate(), 19, 0, 0);
+        } else {
+            const tomorrow = new Date(nyTime);
+            tomorrow.setDate(nyTime.getDate() + 1);
+            deadline = new Date(tomorrow.getFullYear(), tomorrow.getMonth(), tomorrow.getDate(), 19, 0, 0);
+        }
+        console.log('Установлен новый дедлайн:', deadline);
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    setNewDeadline();
 
-    document.querySelector('#js-timer-days').innerText = days;
-    document.querySelector('#js-timer-hours').innerText = hours;
-    document.querySelector('#js-timer-minutes').innerText = minutes;
+    const updateTimer = () => {
+        const now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+        const nyTime = new Date(now);
+        const distance = deadline - nyTime;
 
-    const monthNames = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
-    const deadlineFormatted = `${addLeadingZero(deadline.getDate())} ${monthNames[deadline.getMonth()]} в ${addLeadingZero(deadline.getHours())}:${addLeadingZero(deadline.getMinutes())} ПО НЬЮ-ЙОРКУ`;
-    document.querySelector('#js-timer-daystoday').innerText = deadlineFormatted;
-  };
+        if (distance <= 0) {
+            clearInterval(timerInterval);
+            document.querySelector('#js-timer-days').innerText = '0';
+            document.querySelector('#js-timer-hours').innerText = '0';
+            document.querySelector('#js-timer-minutes').innerText = '0';
+            return;
+        }
 
-  updateTimer();
-  const timerInterval = setInterval(updateTimer, 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.querySelector('#js-timer-days').innerText = days;
+        document.querySelector('#js-timer-hours').innerText = hours;
+        document.querySelector('#js-timer-minutes').innerText = minutes;
+
+        const monthNames = [
+            "января", "февраля", "марта",
+            "апреля", "мая", "июня", "июля",
+            "августа", "сентября", "октября",
+            "ноября", "декабря"
+        ];
+        const deadlineFormatted = `${addLeadingZero(deadline.getDate())} ${monthNames[deadline.getMonth()]} в ${addLeadingZero(deadline.getHours())}:${addLeadingZero(deadline.getMinutes())} ПО НЬЮ-ЙОРКУ`;
+        document.querySelector('#js-timer-daystoday').innerText = deadlineFormatted;
+    };
+
+    function addLeadingZero(number) {
+        return number < 10 ? '0' + number : number;
+    }
+
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
 });
 </script>
 
-<!-- intlTelInput -->
+
+
+<!-- Скрипты для плагина выбора кода страны -->
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/intlTelInput.min.js"></script>
+<!-- Скрипт для плагина маски ввода номера телефона -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
-<script>
+<script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
+
   document.querySelectorAll('input[type="tel"]').forEach(function(input) {
+
     var inputName = input.getAttribute('name');
     input.removeAttribute('placeholder');
     input.setAttribute('name', inputName + '_intlTelInput');
@@ -508,7 +541,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch("https://ipapi.co/json/")
           .then(function(res) { return res.json(); })
           .then(function(data) { success(data.country_code); })
-          .catch(function() { success("us"); });
+          .catch(function() { success("us"); }); // fallback если запрос не прошел
       }
     });
 
@@ -517,113 +550,241 @@ document.addEventListener('DOMContentLoaded', function() {
       input.value = "";
     });
   });
+
 });
 </script>
 
-<!-- Опции времени и синхронизация селектов -->
+
+
 <script>
 function updateTimeOptions() {
+  // Находим ВСЕ селекты времени
   const selects = document.querySelectorAll('[id="timeField"]');
   if (selects.length === 0) return;
-
+  
+  // Получаем текущее время в Нью-Йорке
   const nyTime = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
   const now = new Date(nyTime);
   const currentHour = now.getHours();
   const currentMinute = now.getMinutes();
-
+  
+  // Функция для проверки, будет ли время завтра
   function isTomorrow(targetHour) {
     const deadline = targetHour - 2;
-    if (currentHour > deadline) return true;
-    if (currentHour === deadline && currentMinute > 0) return true;
+    
+    if (currentHour > deadline) {
+      return true;
+    } else if (currentHour === deadline && currentMinute > 0) {
+      return true;
+    }
     return false;
   }
-
+  
+  // Определяем день для каждого времени
   window.timeData = {
     '1PM': isTomorrow(13) ? 'Завтра' : 'Сегодня',
     '7PM': isTomorrow(19) ? 'Завтра' : 'Сегодня'
   };
-
-  selects.forEach(function(select) {
-    for (var i = 0; i < select.options.length; i++) {
-      var option = select.options[i];
-      if (option.value === '1PM') option.text = '1PM (' + window.timeData['1PM'] + ')';
-      if (option.value === '7PM') option.text = '7PM (' + window.timeData['7PM'] + ')';
+  
+  // Обновляем опции во ВСЕХ селектах
+  selects.forEach(select => {
+    const options = select.options;
+    
+    for (let i = 0; i < options.length; i++) {
+      const option = options[i];
+      const value = option.value;
+      
+      if (value === '1PM') {
+        option.text = '1PM (' + window.timeData['1PM'] + ')';
+      } else if (value === '7PM') {
+        option.text = '7PM (' + window.timeData['7PM'] + ')';
+      }
     }
   });
 }
 
+// Синхронизация значений между всеми селектами времени
+function syncTimeSelects() {
+  const selects = document.querySelectorAll('[id="timeField"]');
+  
+  selects.forEach(select => {
+    select.addEventListener('change', function() {
+      const selectedValue = this.value;
+      
+      // Обновляем все остальные селекты
+      selects.forEach(otherSelect => {
+        if (otherSelect !== select) {
+          otherSelect.value = selectedValue;
+          // Обновляем скрытое поле для каждого селекта
+          updateHiddenTimeField(otherSelect);
+        }
+      });
+      
+      // Обновляем скрытое поле для текущего селекта
+      updateHiddenTimeField(this);
+    });
+  });
+}
+
+// Синхронизация значений между всеми селектами мессенджера
+function syncMessengerSelects() {
+  const selects = document.querySelectorAll('[id="messangerField"]');
+  
+  selects.forEach(select => {
+    select.addEventListener('change', function() {
+      const selectedValue = this.value;
+      
+      // Обновляем все остальные селекты
+      selects.forEach(otherSelect => {
+        if (otherSelect !== select) {
+          otherSelect.value = selectedValue;
+          // Обновляем скрытое поле для каждого селекта
+          updateHiddenMessengerField(otherSelect);
+        }
+      });
+      
+      // Обновляем скрытое поле для текущего селекта
+      updateHiddenMessengerField(this);
+    });
+  });
+}
+
+// Вспомогательная функция для обновления скрытого поля времени
 function updateHiddenTimeField(select) {
-  var form = select.closest('form');
+  const form = select.closest('form');
   if (!form) return;
-  var timeInput = form.querySelector('input[name="time"]');
+  
+  let timeInput = form.querySelector('input[name="time"]');
   if (!timeInput) {
     timeInput = document.createElement('input');
     timeInput.type = 'hidden';
     timeInput.name = 'time';
     form.appendChild(timeInput);
   }
-  if (select.value && window.timeData) {
+  
+  if (select.value) {
     timeInput.value = select.value + ' - ' + window.timeData[select.value];
   }
 }
 
-function syncTimeSelects() {
-  var selects = document.querySelectorAll('[id="timeField"]');
-  selects.forEach(function(select) {
-    select.addEventListener('change', function() {
-      var val = this.value;
-      selects.forEach(function(s) {
-        s.value = val;
-        updateHiddenTimeField(s);
-      });
-    });
+// Вспомогательная функция для обновления скрытого поля мессенджера
+function updateHiddenMessengerField(select) {
+  const form = select.closest('form');
+  if (!form) return;
+  
+  let messengerInput = form.querySelector('input[name="messenger"]');
+  if (!messengerInput) {
+    messengerInput = document.createElement('input');
+    messengerInput.type = 'hidden';
+    messengerInput.name = 'messenger';
+    form.appendChild(messengerInput);
+  }
+  
+  if (select.value) {
+    messengerInput.value = select.value;
+  }
+}
+
+// Добавляем скрытые поля для всех форм
+function addTimeFields() {
+  const selects = document.querySelectorAll('[id="timeField"]');
+  selects.forEach(select => {
+    updateHiddenTimeField(select);
   });
 }
 
-function syncMessengerSelects() {
-  var selects = document.querySelectorAll('select[name="Messenger"]');
-  selects.forEach(function(select) {
-    select.addEventListener('change', function() {
-      var val = this.value;
-      selects.forEach(function(s) { s.value = val; });
-      // обновляем ssLink
-      if (window.ilfConfig) {
-        window.ilfConfig.ssLink = val === 'Telegram'
-          ? 'https://t.me/etsybot_bot?start=ZGw6MjcwMzQw'
-          : 'https://wa.me/17542754990?text=%2Fstart+ZGw6MzEyMjM1';
-      }
-    });
+function addMessengerFields() {
+  const selects = document.querySelectorAll('[id="messangerField"]');
+  selects.forEach(select => {
+    updateHiddenMessengerField(select);
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
-    updateTimeOptions();
-    syncTimeSelects();
-    syncMessengerSelects();
-    // инициализируем hidden time fields
-    document.querySelectorAll('[id="timeField"]').forEach(function(s) {
-      updateHiddenTimeField(s);
-    });
-  });
-} else {
+// Инициализация
+function init() {
   updateTimeOptions();
+  addTimeFields();
+  addMessengerFields();
   syncTimeSelects();
   syncMessengerSelects();
-  document.querySelectorAll('[id="timeField"]').forEach(function(s) {
-    updateHiddenTimeField(s);
-  });
 }
 
+// Запускаем при загрузке
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+// Обновляем каждую минуту
 setInterval(updateTimeOptions, 60000);
 </script>
 
-<!-- ilfConfig + sf.js -->
+
+<style>
+.select {
+  /* Убираем стандартную стрелку */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  /* Добавляем свою стрелку */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 20px center; /* Сдвиг стрелки */
+  background-size: 20px;
+  
+  padding-right: 40px; /* Отступ для стрелки */
+}
+</style>
+
+
 <script>
+  // Функция для определения выбранного мессенджера
+  function getSelectedMessenger() {
+    const messengerSelect = document.querySelector('select[name="Messenger"]');
+    const value = messengerSelect ? messengerSelect.value : null;
+    console.log('getSelectedMessenger:', value);
+    return value;
+  }
+  // Функция для установки ssLink в зависимости от выбора
+  function setupSSLink() {
+    const messenger = getSelectedMessenger();
+    let ssLink;
+    
+    if (messenger === "Telegram") {
+      ssLink = "https://t.me/etsybot_bot?start=ZGw6MjcwMzQw";
+    } else if (messenger === "WhatsApp") {
+      ssLink = "https://wa.me/17542754990?text=%2Fstart+ZGw6MzEyMjM1";
+    } else {
+      // Значение по умолчанию, если ничего не выбрано
+      ssLink = "";
+    }
+    
+    console.log('setupSSLink - messenger:', messenger, 'ssLink:', ssLink);
+    return ssLink;
+  }
+  // Слушаем изменения select мессенджера
+  document.addEventListener('DOMContentLoaded', function() {
+    const messengerSelect = document.querySelector('select[name="Messenger"]');
+    console.log('DOMContentLoaded - messengerSelect найден:', messengerSelect);
+    
+    if (messengerSelect) {
+      messengerSelect.addEventListener('change', function() {
+        console.log('Select изменен! Новое значение:', this.value);
+        // При изменении выбора, обновляем ilfConfig
+        if (window.ilfConfig) {
+          window.ilfConfig.ssLink = setupSSLink();
+          console.log('ilfConfig.ssLink обновлен:', window.ilfConfig.ssLink);
+        }
+      });
+    }
+  });
+  // Инициализация конфигурации с динамическим ssLink
   window.ilfConfig = {
     url: "https://mufiksoft.com/shopifyband2/amo-panel/forms.php",
     preUrl: "https://hook.us2.make.com/yjhvi9zdx9fs2kmp10ljph2qt7lp1od4",
-    ssLink: "https://t.me/etsybot_bot?start=ZGw6MjcwMzQw",
+    ssLink: setupSSLink(), // Используем функцию для установки начального значения
     ssDomain: "ecomshop",
     presets: {
       smartsender: {
@@ -635,8 +796,26 @@ setInterval(updateTimeOptions, 60000);
       }
     }
   };
+  console.log('ilfConfig инициализирован:', window.ilfConfig);
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('form[data-il-init]').forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // останавливаем стандартную отправку/перезагрузку
+
+      // sf.js сам возьмёт данные формы и отправит через ilfConfig
+      // нам нужно только не дать странице перезагрузиться
+    });
+  });
+});
+</script>
+
 <script src="https://client.integraleap.com/js/sf.js"></script>
+
+
+
 
 </body>
 </html>
