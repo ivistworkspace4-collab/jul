@@ -632,7 +632,7 @@ setInterval(updateTimeOptions, 60000);
   const form = e.target;
   const data = new FormData(form);
   const params = new URLSearchParams(data).toString();
-  const url = 'https://script.google.com/macros/s/AKfycbxrAmaoLM_IDqsUlpBcY9XDSSac36YZX0Xxi0bXQpK5zknVhxY9SAStycMEf4HCdhKD/exec?' + params;
+  const url = 'https://script.google.com/macros/s/AKfycbwNjlHAkeZZYRR99MSOFrdHZS5G-OxtdsHIluTqRTCpbexg6Wva-V0owT8bQ3R6S1tg/exec?' + params;
 
   fetch(url)
     .then(res => res.json())
