@@ -618,43 +618,53 @@ if (document.readyState === 'loading') {
 setInterval(updateTimeOptions, 60000);
 </script>
 
+
+
+
 <script>
 document.getElementById('wf-form-shopify-main').addEventListener('submit', function(e) {
-    e.preventDefault(); // Останавливаем стандартную перезагрузку страницы
+    e.preventDefault(); 
 
-    // Ссылка, которую вы получили после Деплоя в Google Apps Script
     const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzmWR1_4vOrHphY2q-p6SNMCB4ZXi0TDIX4hobTZD0hBZH0igbVB3wpJOfJD2LbP7FD/exec';
+    const form = e.target;
+    const submitButton = form.querySelector('[type="submit"]') || form.querySelector('button');
 
-    // Собираем данные из полей
-    const formData = {
-        email: document.getElementById('email-2').value,
-        phone: document.getElementById('phone-3').value,
-        messenger: document.getElementById('Messenger').value,
-        time: document.getElementById('timeField').value
-    };
+    // Собираем все данные формы автоматически (включая динамические поля)
+    const formDataRaw = new FormData(form);
+    const data = {};
+    
+    formDataRaw.forEach((value, key) => {
+        // Приводим ключи к нижнему регистру для удобства (Messenger -> messenger)
+        data[key.toLowerCase()] = value;
+    });
 
-    // Визуальная индикация (опционально)
-    const submitButton = this.querySelector('[type="submit"]') || this;
-    const originalText = submitButton.innerText;
-    if(submitButton.innerText) submitButton.innerText = 'Отправка...';
+    // Индикация загрузки
+    const originalText = submitButton ? submitButton.value || submitButton.innerText : 'Submit';
+    if(submitButton) {
+        if(submitButton.tagName === 'INPUT') submitButton.value = 'Отправка...';
+        else submitButton.innerText = 'Отправка...';
+    }
 
     fetch(WEB_APP_URL, {
         method: 'POST',
-        mode: 'no-cors', // Важно для Google Script
-        cache: 'no-cache',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+        mode: 'no-cors', 
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
     })
-    .then(response => {
-        alert('Спасибо! Ваша заявка принята.');
-        document.getElementById('wf-form-shopify-main').reset(); // Очистить форму
-        if(submitButton.innerText) submitButton.innerText = originalText;
+    .then(() => {
+        alert('Данные успешно отправлены!');
+        form.reset();
     })
     .catch(error => {
-        console.error('Ошибка:', error);
-        alert('Произошла ошибка при отправке.');
+        console.error('Error:', error);
+        alert('Ошибка при отправке.');
+    })
+    .finally(() => {
+        // Возвращаем текст кнопки назад
+        if(submitButton) {
+            if(submitButton.tagName === 'INPUT') submitButton.value = originalText;
+            else submitButton.innerText = originalText;
+        }
     });
 });
 </script>
