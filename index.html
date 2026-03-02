@@ -113,8 +113,7 @@
         <div class="form-block w-form">
           <form id="wf-form-shopify-main" name="wf-form-shopify-main" data-name="smartsender" method="get" class="form-5" data-wf-page-id="681cd073e10f5fc7e7e7e821" data-wf-element-id="e8540089-5f2c-87c6-d863-23e62722611f" data-il-init="1" aria-label="smartsender">
             <input class="text-field-5 w-input" maxlength="256" name="email" data-name="email" placeholder="email" type="email" id="email-2" required="">
-            <input ms-code-phone-number="" class="text-field-5 w-input" maxlength="256" name="phone_intlTelInput" data-name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
-            <input type="hidden" name="phone">
+            <input class="text-field-5 w-input" maxlength="256" name="phone" data-name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
             <div class="gap-12">
               <div class="wrp-label">
                 <div class="p-16">Мессенджер</div>
@@ -242,9 +241,7 @@
     <div class="form-block w-form">
       <form id="wf-form-shopify-main" name="wf-form-shopify-main" data-name="smartsender" method="get" class="form-5" data-wf-page-id="681cd073e10f5fc7e7e7e821" data-wf-element-id="ccfdfec9-9f98-96db-9f58-1d4f69bf12c9" data-il-init="1" aria-label="smartsender">
         <input class="text-field-5 w-input" maxlength="256" name="email" data-name="email" placeholder="email" type="email" id="email-2" required="">
-        <input ms-code-phone-number="" class="text-field-5 w-input" maxlength="256" name="phone_intlTelInput" data-name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
-        <input type="hidden" name="phone">
-        <div class="gap-12">
+        <input class="text-field-5 w-input" maxlength="256" name="phone" data-name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567"><div class="gap-12">
           <div class="wrp-label">
             <div class="p-16">Мессенджер</div>
             <div class="wrp-form-ch"></div>
@@ -343,8 +340,7 @@
     <div class="form-block w-form">
       <form id="wf-form-shopify-main" name="wf-form-shopify-main" data-name="smartsender" method="get" class="form-5" data-wf-page-id="681cd073e10f5fc7e7e7e821" data-wf-element-id="ec58f6ba-f2d9-d998-1cfe-91fa9e8b23da" data-il-init="1" aria-label="smartsender">
         <input class="text-field-5 w-input" maxlength="256" name="email" data-name="email" placeholder="email" type="email" id="email-2" required="">
-        <input ms-code-phone-number="" class="text-field-5 w-input" maxlength="256" name="phone_intlTelInput" data-name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
-        <input type="hidden" name="phone">
+        <input class="text-field-5 w-input" maxlength="256" name="phone" data-name="phone" type="tel" id="phone-3" required="" autocomplete="off" placeholder="50 123 4567">
         <div class="gap-12">
           <div class="wrp-label">
             <div class="p-16">Мессенджер</div>
@@ -514,55 +510,40 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 <!-- Скрипты для плагина выбора кода страны -->
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/intlTelInput.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/utils.js"></script>
-
 <!-- Скрипт для плагина маски ввода номера телефона -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
 <script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
 
-var Webflow = Webflow || [];
-Webflow.push(function(){
+  document.querySelectorAll('input[type="tel"]').forEach(function(input) {
 
-	// ищем все поля ввода с атрибутом type="tel" на странице и применяем к плагины
-	$('input[type="tel"]').each(function(){
+    var inputName = input.getAttribute('name');
+    input.removeAttribute('placeholder');
+    input.setAttribute('name', inputName + '_intlTelInput');
 
-  	var $input = $(this); // поле ввода
-    $input.removeAttr('placeholder'); // удалаяем placeholder по умолчанию
-    var inputName = $input.attr('name'); // получаем имя поля по аттрибуту name
-		
-		// меняем имя поля по для использования совместно с плагином выбора кода страны
-    $input.attr('name', inputName + '_intlTelInput'); 
-
-    var input = $input.get(0); // переменная поля ввода для использования без jQuery
-
-		// инициализируем плагин выбора кода страны
     var iti = intlTelInput(input, {
-      initialCountry: "auto", // автоматический выбор кода страны по гео-запросу
-      hiddenInput: inputName, // создаем скрытое поле для отправки формы с номером телефона
-      preferredCountries: ["ua"], // предпочитаемые коды стран в массиве (отображаются вверху списка)
+      initialCountry: "auto",
+      hiddenInput: inputName,
+      preferredCountries: ["us", "ua"],
       excludeCountries: ["ru", "by"],
-      separateDialCode: true, // раздельно код страны от номера
-      formatOnDisplay: true, // вкл. форматирование номера телефона
+      separateDialCode: true,
+      formatOnDisplay: true,
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/utils.js",
       geoIpLookup: function(success, failure) {
-				// запрашиваем гео данные по IP-адресу
-        $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-					// получаем и возвращаем код страны, определенный по IP-адресу
-          var countryCode = (resp && resp.country) ? resp.country : "";
-          success(countryCode);
-        });
-      },
+        fetch("https://ipapi.co/json/")
+          .then(function(res) { return res.json(); })
+          .then(function(data) { success(data.country_code); })
+          .catch(function() { success("us"); }); // fallback если запрос не прошел
+      }
     });
 
-		// слушаем событие на изменение кода страны
     input.addEventListener("countrychange", function() {
-    	$input.blur(); // снимаем фокус с поля ввода телефона
-      $input.val(""); // удаляем ранее введенный номер телефона
-
-			// применяем маску ввод телефона
-      $input.mask($input.attr('placeholder').replace(/[0-9]/g, "9"));
+      input.blur();
+      input.value = "";
     });
   });
+
 });
 </script>
 
