@@ -4293,6 +4293,8 @@ p {
   border-radius: .417vw;
   justify-content: center;
   align-items: center;
+  line-height: 100%;
+    text-decoration-line: none;
   width: 19.59vw;
   height: 4.537vw;
   font-size: 1.528vw;
